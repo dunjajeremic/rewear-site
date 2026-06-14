@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "size": "38",
+      "brand": "ZARA",
+      "price": 3500,
+      "status": "active",
+      "title": "STIKLE",
+      "tag": "Provereno",
+      "condition": "KAO NOVO ",
+      "image": "/assets/uploads/screenshot-2026-06-14-at-09.39.22.png",
+      "category": "ženska"
+    }
+  ]
+}
