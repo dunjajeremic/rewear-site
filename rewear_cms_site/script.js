@@ -15,88 +15,8 @@ if (navToggle && mainNav) {
   });
 }
 
-const fallbackProducts = [
-  {
-    "title": "Zara elegantni sako",
-    "brand": "Zara",
-    "category": "ženska",
-    "size": "M",
-    "condition": "Kao novo",
-    "price": 3900,
-    "tag": "Provereno",
-    "image": ""
-  },
-  {
-    "title": "Nike Air patike",
-    "brand": "Nike",
-    "category": "patike",
-    "size": "42",
-    "condition": "Odlično stanje",
-    "price": 7500,
-    "tag": "Original",
-    "image": ""
-  },
-  {
-    "title": "Mango kaput",
-    "brand": "Mango",
-    "category": "ženska",
-    "size": "S",
-    "condition": "Bez oštećenja",
-    "price": 6200,
-    "tag": "Novo u katalogu",
-    "image": ""
-  },
-  {
-    "title": "Tommy Hilfiger košulja",
-    "brand": "Tommy Hilfiger",
-    "category": "muška",
-    "size": "L",
-    "condition": "Vrlo dobro",
-    "price": 4500,
-    "tag": "Brendirano",
-    "image": ""
-  },
-  {
-    "title": "Guess torba",
-    "brand": "Guess",
-    "category": "aksesoari",
-    "size": "Univerzalno",
-    "condition": "Kao novo",
-    "price": 8900,
-    "tag": "Premium",
-    "image": ""
-  },
-  {
-    "title": "Adidas trenerka",
-    "brand": "Adidas",
-    "category": "muška",
-    "size": "XL",
-    "condition": "Dobro stanje",
-    "price": 5200,
-    "tag": "Sport",
-    "image": ""
-  },
-  {
-    "title": "Stradivarius haljina",
-    "brand": "Stradivarius",
-    "category": "ženska",
-    "size": "M",
-    "condition": "Nošeno jednom",
-    "price": 2800,
-    "tag": "Povoljno",
-    "image": ""
-  },
-  {
-    "title": "Converse All Star",
-    "brand": "Converse",
-    "category": "patike",
-    "size": "39",
-    "condition": "Vrlo dobro",
-    "price": 4100,
-    "tag": "Popularno",
-    "image": ""
-  }
-];
+const fallbackProducts = [];
+
 
 let products = [...fallbackProducts];
 const productGrid = document.getElementById('productGrid');
@@ -133,7 +53,7 @@ function normalizeProduct(product) {
 
 async function loadProducts() {
   try {
-    const response = await fetch('content/data/products.json', { cache: 'no-store' });
+    const response = await fetch(`content/data/products.json?updated=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error('Nije moguće učitati oglase');
     const data = await response.json();
     if (Array.isArray(data.items)) {
@@ -158,7 +78,7 @@ function renderProducts() {
   });
 
   if (!filteredProducts.length) {
-    productGrid.innerHTML = `<div class="product-card" style="grid-column: 1 / -1;"><div class="product-body"><h3>Nema rezultata</h3><p>Probaj drugi brend, veličinu ili kategoriju.</p></div></div>`;
+    productGrid.innerHTML = `<div class="product-card empty-card" style="grid-column: 1 / -1;"><div class="product-body"><h3>Trenutno nema objavljenih oglasa</h3><p>Novi oglasi će se pojaviti ovde nakon provere i objave kroz admin panel.</p></div></div>`;
     return;
   }
 

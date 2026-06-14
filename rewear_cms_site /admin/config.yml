@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "rewear_cms_site/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "/"
+display_url: "/"
+logo_url: "/assets/uploads/.gitkeep"
+
+collections:
+  - name: "katalog"
+    label: "Katalog"
+    files:
+      - file: "rewear_cms_site/content/data/products.json"
+        name: "oglasi"
+        label: "Oglasi"
+        fields:
+          - label: "Lista oglasa"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.brand}} — {{fields.price}} RSD"
+            fields:
+              - { label: "Naslov oglasa", name: "title", widget: "string" }
+              - { label: "Brend", name: "brand", widget: "string" }
+              - label: "Kategorija"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Ženska", value: "ženska" }
+                  - { label: "Muška", value: "muška" }
+                  - { label: "Patike", value: "patike" }
+                  - { label: "Aksesoari", value: "aksesoari" }
+                  - { label: "Unisex", value: "unisex" }
+              - { label: "Veličina", name: "size", widget: "string" }
+              - { label: "Stanje", name: "condition", widget: "string" }
+              - { label: "Cena u RSD", name: "price", widget: "number", value_type: "int", min: 0 }
+              - { label: "Oznaka", name: "tag", widget: "string", required: false, default: "Provereno" }
+              - { label: "Slika", name: "image", widget: "image", required: false }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                required: false
+                default: "active"
+                options:
+                  - { label: "Aktivan", value: "active" }
+                  - { label: "Sakriven", value: "inactive" }

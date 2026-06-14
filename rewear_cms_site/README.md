@@ -73,3 +73,34 @@ Email na sajtu je podešen na:
 
 `oglasirewear@gmail.com`
 
+
+
+## Sistem za prodavce koji su već uplatili
+
+Na sajtu je dodata sekcija **Već imate aktivnu ReWear pretplatu?**.
+
+Kada prodavac uplati paket, dodeli mu interni kod, na primer `RW-0001`.
+Prodavac zatim šalje oglase na:
+
+`oglasirewear@gmail.com`
+
+U naslov emaila treba da upiše kod, na primer:
+
+`RW-0001 | Novi oglasi | ReWear`
+
+Tako možeš lako da proveriš paket, broj preostalih oglasa i datum isteka pretplate pre nego što oglase objaviš kroz `/admin/`.
+
+Preporuka za evidenciju prodavaca:
+
+`Kod | Ime | Email | Paket | Broj oglasa | Iskorišćeno | Datum uplate | Važi do | Status`
+
+
+## VAŽNO za admin i oglase
+
+Ova ZIP verzija je podešena za GitHub strukturu gde se svi fajlovi nalaze unutar foldera `rewear_cms_site`, a Netlify Publish directory je `rewear_cms_site`.
+
+Admin panel sada upisuje oglase direktno u:
+
+`rewear_cms_site/content/data/products.json`
+
+Ako ste ranije dodali oglas u adminu i pisalo je da je objavljen, a nije se video na sajtu, razlog je bio što je CMS upisivao u pogrešan folder. Posle upload-a ove verzije, dodajte oglas ponovo kroz `/admin/`.

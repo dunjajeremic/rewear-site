@@ -924,6 +924,190 @@ h3 {
   margin-bottom: 26px;
 }
 
+
+.active-seller-section {
+  background: linear-gradient(135deg, rgba(17, 18, 22, 0.96), rgba(31, 61, 50, 0.94));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.active-seller-section::before {
+  content: "";
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: rgba(166, 255, 0, 0.16);
+  right: -130px;
+  top: -120px;
+}
+
+.active-seller-section::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  left: -120px;
+  bottom: -140px;
+}
+
+.active-seller-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.active-seller-copy .eyebrow {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.active-seller-copy h2 {
+  margin-top: 18px;
+}
+
+.active-seller-copy p {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 18px;
+}
+
+.active-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 28px 0 18px;
+}
+
+.active-seller-section .btn-primary {
+  background: var(--accent);
+  color: var(--ink);
+  box-shadow: 0 18px 44px rgba(166, 255, 0, 0.18);
+}
+
+.active-seller-section .btn-secondary {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.seller-note {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px 15px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.seller-note a {
+  color: #fff;
+  font-weight: 900;
+}
+
+.active-seller-panel {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  border-radius: 34px;
+  padding: 30px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
+}
+
+.code-card {
+  display: grid;
+  gap: 7px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 24px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.code-card span {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.code-card strong {
+  font-size: clamp(18px, 2.3vw, 28px);
+  letter-spacing: -0.04em;
+}
+
+.seller-flow {
+  list-style: none;
+  counter-reset: sellerSteps;
+  padding: 0;
+  margin: 20px 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.seller-flow li {
+  counter-increment: sellerSteps;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(244, 244, 241, 0.72);
+}
+
+.seller-flow li::before {
+  content: counter(sellerSteps, decimal-leading-zero);
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(166, 255, 0, 0.32);
+  font-weight: 900;
+}
+
+.seller-flow strong,
+.seller-flow span {
+  display: block;
+}
+
+.seller-flow span {
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.seller-limit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.seller-limit-grid div {
+  background: rgba(17, 18, 22, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.seller-limit-grid strong,
+.seller-limit-grid span {
+  display: block;
+}
+
+.seller-limit-grid span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 @media (max-width: 980px) {
   .nav-toggle {
     display: block;
@@ -956,7 +1140,8 @@ h3 {
   .hero-grid,
   .about-grid,
   .contact-grid,
-  .seller-card {
+  .seller-card,
+  .active-seller-shell {
     grid-template-columns: 1fr;
   }
 
@@ -1016,6 +1201,7 @@ h3 {
   }
 
   .hero-actions .btn,
+  .active-actions .btn,
   .btn {
     width: 100%;
   }
@@ -1033,7 +1219,8 @@ h3 {
   .product-grid,
   .faq-grid,
   .checklist,
-  .stats-grid {
+  .stats-grid,
+  .seller-limit-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1048,6 +1235,7 @@ h3 {
 
   .seller-card,
   .contact-form,
+  .active-seller-panel,
   .thankyou-card {
     padding: 24px;
     border-radius: 26px;
