@@ -4,7 +4,7 @@ backend:
 
 local_backend: true
 
-media_folder: "rewear_cms_site/assets/uploads"
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 site_url: "/"
@@ -15,7 +15,7 @@ collections:
   - name: "katalog"
     label: "Katalog"
     files:
-      - file: "rewear_cms_site/content/data/products.json"
+      - file: "content/data/products.json"
         name: "oglasi"
         label: "Oglasi"
         fields:

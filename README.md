@@ -93,14 +93,3 @@ Tako možeš lako da proveriš paket, broj preostalih oglasa i datum isteka pret
 Preporuka za evidenciju prodavaca:
 
 `Kod | Ime | Email | Paket | Broj oglasa | Iskorišćeno | Datum uplate | Važi do | Status`
-
-
-## VAŽNO za admin i oglase
-
-Ova ZIP verzija je podešena za GitHub strukturu gde se svi fajlovi nalaze unutar foldera `rewear_cms_site`, a Netlify Publish directory je `rewear_cms_site`.
-
-Admin panel sada upisuje oglase direktno u:
-
-`rewear_cms_site/content/data/products.json`
-
-Ako ste ranije dodali oglas u adminu i pisalo je da je objavljen, a nije se video na sajtu, razlog je bio što je CMS upisivao u pogrešan folder. Posle upload-a ove verzije, dodajte oglas ponovo kroz `/admin/`.

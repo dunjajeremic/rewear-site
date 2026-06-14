@@ -53,14 +53,14 @@ function normalizeProduct(product) {
 
 async function loadProducts() {
   try {
-    const response = await fetch(`content/data/products.json?updated=${Date.now()}`, { cache: 'no-store' });
+    const response = await fetch('content/data/products.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('Nije moguće učitati oglase');
     const data = await response.json();
     if (Array.isArray(data.items)) {
       products = data.items.map(normalizeProduct).filter((product) => product.status !== 'inactive');
     }
   } catch (error) {
-    products = fallbackProducts.map(normalizeProduct);
+    products = [];
   } finally {
     renderProducts();
   }
@@ -78,7 +78,7 @@ function renderProducts() {
   });
 
   if (!filteredProducts.length) {
-    productGrid.innerHTML = `<div class="product-card empty-card" style="grid-column: 1 / -1;"><div class="product-body"><h3>Trenutno nema objavljenih oglasa</h3><p>Novi oglasi će se pojaviti ovde nakon provere i objave kroz admin panel.</p></div></div>`;
+    productGrid.innerHTML = `<div class="product-card" style="grid-column: 1 / -1;"><div class="product-body"><h3>Trenutno nema objavljenih oglasa.</h3><p>Novi oglasi će biti prikazani nakon provere i objave.</p></div></div>`;
     return;
   }
 
